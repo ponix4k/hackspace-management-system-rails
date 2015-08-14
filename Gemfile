@@ -6,7 +6,7 @@ gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
-# Use SCSS for stylesheets
+gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '~> 5.0.3'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -43,6 +43,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-gem 'twitter-bootstrap-rails'
-gem 'less-rails'

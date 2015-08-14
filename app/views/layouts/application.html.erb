@@ -45,8 +45,12 @@
             <div class="login">User</div>
         </div>
       </div>
+      <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash alert <%= key %> alert-dismissable"><%= value %></div>
+      <% end %>
+      </div>
       <div id="content">
-        <%= bootstrap_flash %>
         <%= yield %>
       </div>
       <div id="footer">
