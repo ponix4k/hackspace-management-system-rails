@@ -2,16 +2,15 @@ require 'rails_helper'
 
 RSpec.describe HsSession, type: :model do
   it "creates a time diff on sign out" do
+    user = create(:user)
     time_in = Time.local(2015, 10, 1, 8, 0, 0)
 
     [4.hours, 0.5.hours, 3.5.hours, 0.25.hours].each do |time|
       uid = SecureRandom.hex
 
       Timecop.freeze(time_in) do
-        User.process_uid(uid)
+        user.process_session
       end
-
-      user = User.find_by(uid: uid)
 
       Timecop.freeze(time_in + time) do
         user.process_session
