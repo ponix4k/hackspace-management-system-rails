@@ -19,11 +19,13 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails', '~> 4.5'
+  gem 'pry'
 end
 
 group :test do
   gem "timecop", "~> 0.8.0"
   gem "database_cleaner"
+  gem 'shoulda', '~> 3.5'
 end
 
 group :doc do

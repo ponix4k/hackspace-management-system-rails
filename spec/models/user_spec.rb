@@ -1,6 +1,14 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
+  describe "associations" do
+    it { should have_many(:hs_sessions) }
+  end
+
+  describe "validations" do
+    it { should validate_presence_of(:uid) }
+  end
+
   describe "when the user is not signed in" do
     it "creates a new session" do
       user = create(:user)

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable
 
   has_many :hs_sessions
+  validates :uid, presence: true
 
   def process_session
     if hs_sessions.empty? || hs_sessions.last.timeout?

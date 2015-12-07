@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe HsSession, type: :model do
+  context "associations" do
+    it { should belong_to(:user) }
+  end
+
   it "creates a time diff on sign out" do
     user = create(:user)
     time_in = Time.local(2015, 10, 1, 8, 0, 0)
