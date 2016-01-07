@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206125533) do
+ActiveRecord::Schema.define(version: 20160107201114) do
 
   create_table "hs_sessions", force: :cascade do |t|
     t.datetime "timein"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20151206125533) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "uid"
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

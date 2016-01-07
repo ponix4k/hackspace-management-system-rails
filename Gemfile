@@ -1,18 +1,22 @@
 source 'https://rubygems.org'
 
-gem 'bootstrap-sass', '~> 3.3.5'
+gem "administrate", "~> 0.1.2"
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'cancancan', '~> 1.13', '>= 1.13.1'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
 gem 'rails', '4.2.3'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0.3'
+gem 'sqlite3'
 gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
 gem 'uglifier', '~> 2.7.1'
 
 group :development do
+  gem 'better_errors', '~> 2.1', '>= 2.1.1'
+  gem 'binding_of_caller', '~> 0.7.2'
   gem 'brakeman', '~> 3.1', '>= 3.1.2', :require => false
 end
 
