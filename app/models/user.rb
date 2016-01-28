@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :hs_sessions
   validates :uid, presence: true
+  validates :uid, uniqueness: true
+
+  before_validation :generate_temp_password
 
   def process_session
     if hs_sessions.empty? || hs_sessions.last.timeout?
@@ -20,6 +23,10 @@ class User < ActiveRecord::Base
   end
 
   private
+
+  def generate_temp_password
+    self.password = SecureRandom.hex(10)
+  end
 
   def create_new_session
     hs_sessions.create(timein: Time.now)
