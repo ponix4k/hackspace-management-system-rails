@@ -7,7 +7,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
-gem 'rails', '4.2.3'
+gem 'rails', "4.2.5.1"
 gem 'sass-rails', '~> 5.0.3'
 gem 'sqlite3'
 gem 'therubyracer', platforms: :ruby
