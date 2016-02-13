@@ -12,6 +12,7 @@ class UserDashboard < Administrate::BaseDashboard
     uid: Field::String,
     created_at: Field::DateTime,
     hs_sessions: Field::HasMany,
+    role: Field::String
   }
 
   # COLLECTION_ATTRIBUTES
@@ -33,7 +34,8 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :email,
-    :uid
+    :uid,
+    :role
   ]
 
   # Overwrite this method to customize how users are displayed
