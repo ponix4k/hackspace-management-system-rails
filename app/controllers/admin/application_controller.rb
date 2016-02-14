@@ -7,6 +7,12 @@
 module Admin
   class ApplicationController < Administrate::ApplicationController
     before_action :authenticate_user!
+    authorize_resource
+
+    # What to do if unauthorised
+    rescue_from CanCan::AccessDenied do |exception|
+      redirect_to root_url, alert: exception.message
+    end
 
     # Override this value to specify the number of elements to display at a time
     # on index pages. Defaults to 20.

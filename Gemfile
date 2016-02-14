@@ -28,6 +28,7 @@ end
 
 group :test do
   gem "timecop", "~> 0.8.0"
+  gem 'capybara', '~> 2.6', '>= 2.6.2'
   gem "database_cleaner"
   gem 'shoulda', '~> 3.5'
 end

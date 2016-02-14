@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
 
   before_validation :generate_temp_password
 
+  ROLES = %w(user admin).freeze
+
   def process_session
     if hs_sessions.empty? || hs_sessions.last.timeout?
       create_new_session
