@@ -137,6 +137,10 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     libv8 (3.16.14.11)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -283,6 +287,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.5)
   jbuilder (~> 1.2)
   jquery-rails
+  letter_opener (~> 1.4, >= 1.4.1)
   pry
   rails (= 4.2.5.1)
   rspec-rails (~> 3.0)

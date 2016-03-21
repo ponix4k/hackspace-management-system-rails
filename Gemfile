@@ -18,6 +18,7 @@ group :development do
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'brakeman', '~> 3.1', '>= 3.1.2', :require => false
+  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 end
 
 group :development, :test do
