@@ -27,9 +27,7 @@ class User < ActiveRecord::Base
   private
 
   def generate_temp_password
-    if self.password.nil?
-      self.password = SecureRandom.hex(10)
-    end
+    self.password = SecureRandom.hex(10) if id.nil?
   end
 
   def create_new_session
