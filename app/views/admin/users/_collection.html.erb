@@ -32,7 +32,7 @@ to display a collection of resources in an HTML table.
 
             <% if collection_presenter.ordered_by?(attr_name) %>
               <span class="cell-label__sort-indicator cell-label__sort-indicator--<%= collection_presenter.ordered_html_class(attr_name) %>">
-                <%= inline_svg("administrate/sort_arrow.svg") %>
+                <%= svg_tag "administrate/sort_arrow.svg", svg_id: "sort", width: "16", height: "16" %>
               </span>
             <% end %>
           <% end %>
@@ -46,7 +46,7 @@ to display a collection of resources in an HTML table.
       <tr class="table__row"
           role="link"
           tabindex="0"
-          data-url="<%= polymorphic_path([Administrate::NAMESPACE, resource]) -%>"
+          data-url="<%= polymorphic_path([namespace, resource]) -%>"
           >
         <% collection_presenter.attributes_for(resource).each do |attribute| %>
           <td class="cell-data cell-data--<%= attribute.html_class %>">

@@ -268,7 +268,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  administrate (~> 0.1.2)
+  administrate (~> 0.1.4)
   better_errors (~> 2.1, >= 2.1.1)
   binding_of_caller (~> 0.7.2)
   bootstrap-sass (~> 3.3.6)

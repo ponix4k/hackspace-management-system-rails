@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "administrate", "~> 0.1.2"
+gem "administrate", "~> 0.1.4"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'cancancan', '~> 1.13', '>= 1.13.1'
 gem 'coffee-rails', '~> 4.1.0'
