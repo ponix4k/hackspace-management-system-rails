@@ -4,12 +4,13 @@ gem "administrate", "~> 0.1.4"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'cancancan', '~> 1.13', '>= 1.13.1'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'delayed_job_active_record', '~> 4.1'
 gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
+gem 'pg', '~> 0.18.4'
 gem 'rails', "4.2.5.1"
 gem 'sass-rails', '~> 5.0.3'
-gem 'sqlite3'
 gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
 gem 'uglifier', '~> 2.7.1'

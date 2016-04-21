@@ -1,0 +1,14 @@
+db:
+  image: postgres:9.4
+  ports:
+    - "5432"
+web:
+  build: .
+  command: foreman start -f Procfile
+  volumes:
+    - .:/app
+  stdin_open: true
+  ports:
+    - "3000:3000"
+  links:
+    - db

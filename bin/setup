@@ -3,13 +3,6 @@
 # Set up Rails app. Run this script immediately after cloning the codebase.
 # https://github.com/leigh-hackspace/hackspace-management-system-rails
 
-# Set up Ruby dependencies via Bundler
-if ! command -v bundle > /dev/null; then
-  gem install bundler --no-document
-fi
-
-bundle install
-
 # Add binstubs to PATH via export PATH=".git/safe/../../bin:$PATH" in ~/.zshenv
 if [ ! -d .git/safe ]; then
   mkdir .git/safe
