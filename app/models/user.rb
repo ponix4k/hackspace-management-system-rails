@@ -2,13 +2,13 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable
 
   has_many :hs_sessions
   validates :uid, presence: true
   validates :uid, uniqueness: true
 
-  before_validation :generate_temp_password
+  before_validation :generate_temp_password, if: :new_user? && :admin_exists?
 
   ROLES = %w(user admin).freeze
 
@@ -27,17 +27,23 @@ class User < ActiveRecord::Base
   private
 
   def generate_temp_password
-    self.password = SecureRandom.hex(10) if id.nil?
+    self.password = SecureRandom.hex(10)
+  end
+
+  def new_user?
+    id.nil?
+  end
+
+  def admin_exists?
+    User.count > 0
   end
 
   def create_new_session
     hs_sessions.create(timein: Time.now)
-    puts "Signed in"
   end
 
   def sign_out_user
     hs_sessions.last.update_attribute(:timeout, Time.now)
-    puts "Signed out"
     self.work_out_diff
   end
 end

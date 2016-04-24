@@ -1,4 +1,5 @@
 # hackspace-management-system-rails
+
 Rails version of the HMS
 
 ## Getting Started
@@ -7,14 +8,29 @@ Clone the repo:
 
 `git clone git@github.com:leigh-hackspace/hackspace-management-system-rails.git`
 
-Setup your environment:
+`cd hackspace-management-system-rails`
 
-`bash bin/setup`
+### Setup your environment:
 
-Start the server:
+Build the docker images
 
-`rails s`
+`docker-compose build`
 
-Verify you're up and running
+Run the setup script
 
-`open http://localhost:3000/admin`
+`docker-compose run web bash bin/setup`
+
+Start the app:
+
+`docker-compose up`
+
+Verify you're up and running by visiting:
+
+`http://localhost:3000/`
+
+Admin login:
+
+`http://localhost:3000/admin`
+
+
+
