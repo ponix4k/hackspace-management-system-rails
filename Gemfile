@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.3.1"
+
 gem "administrate", "~> 0.1.4"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'cancancan', '~> 1.13', '>= 1.13.1'
@@ -15,6 +17,10 @@ gem 'therubyracer', platforms: :ruby
 gem 'thin', '~> 1.6', '>= 1.6.4'
 gem 'turbolinks'
 gem 'uglifier', '~> 2.7.1'
+
+group :production do
+  gem 'rails_12factor', '~> 0.0.3'
+end
 
 group :development do
   gem 'better_errors', '~> 2.1', '>= 2.1.1'
