@@ -1,6 +1,7 @@
 class Api::V1::HsSessionsController < ApplicationController
   protect_from_forgery with: :null_session
   rescue_from Exception, with: :oh_no_no_no
+  skip_before_action :verify_authenticity_token, if: :create
 
   def create
     user = User.find_by(uid: hs_sessions_params[:uid])
