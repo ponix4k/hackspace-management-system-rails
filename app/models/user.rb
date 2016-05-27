@@ -8,42 +8,29 @@ class User < ActiveRecord::Base
   validates :uid, presence: true
   validates :uid, uniqueness: true
 
-  before_validation :generate_temp_password, if: :new_user? && :admin_exists?
+  before_validation :generate_password, if: :password_needs_to_be_generated?
 
   ROLES = %w(user admin).freeze
 
-  def process_session
-    if hs_sessions.empty? || hs_sessions.last.timeout?
-      create_new_session
-    else
-      sign_out_user
-    end
-  end
-
-  def work_out_diff
-    HsSession.session_length(self)
+  def hs_session_can_be_created?
+    hs_sessions.empty? || hs_sessions.last.timeout?
   end
 
   private
 
-  def generate_temp_password
+  def generate_password
     self.password = SecureRandom.hex(10)
   end
 
-  def new_user?
+  def password_needs_to_be_generated?
+    user_exists? && admin_exists?
+  end
+
+  def user_exists?
     id.nil?
   end
 
   def admin_exists?
     User.count > 0
-  end
-
-  def create_new_session
-    hs_sessions.create(timein: Time.now)
-  end
-
-  def sign_out_user
-    hs_sessions.last.update_attribute(:timeout, Time.now)
-    self.work_out_diff
   end
 end

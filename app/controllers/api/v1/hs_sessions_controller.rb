@@ -5,11 +5,12 @@ class Api::V1::HsSessionsController < ApplicationController
 
   def create
     user = User.find_by(uid: hs_sessions_params[:uid])
-    user.process_session
-    if user.save
-      @hs_session = user.hs_sessions.last
+    @hs_session = setup_hs_session(user)
+
+    @hs_session.process_session
+    if @hs_session.save
       render json: {
-        message: "OK"
+        status: @hs_session.status
       }
     else
       oh_no_no_no
@@ -17,6 +18,14 @@ class Api::V1::HsSessionsController < ApplicationController
   end
 
   private
+
+  def setup_hs_session(user)
+    if user.hs_sessions.blank? || user.hs_sessions.last.timeout?
+      HsSession.new(user: user)
+    else
+      user.hs_sessions.last
+    end
+  end
 
   def hs_sessions_params
     {

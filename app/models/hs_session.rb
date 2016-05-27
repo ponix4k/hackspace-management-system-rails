@@ -1,9 +1,34 @@
 class HsSession < ActiveRecord::Base
   belongs_to :user
 
-  def self.session_length(user)
-    session = user.hs_sessions.last
-    duration = ((session.timeout - session.timein) / 1.hour).round(2)
-    session.update(diff: duration)
+  validates :timein, presence: true
+
+  def process_session
+    return false if session_duration_is_too_short?
+
+    if timein?
+      create_time_out
+    else
+      create_time_in
+    end
+  end
+
+  private
+
+  def session_duration_is_too_short?
+    user.hs_sessions.last.updated_at > 30.seconds.ago
+  end
+
+  def create_time_in
+    update(timein: Time.now, status: "IN")
+  end
+
+  def create_time_out
+    timeout = Time.now
+    update(timeout: timeout, status: "OUT", diff: work_out_diff(timeout))
+  end
+
+  def work_out_diff(timeout)
+    ((timeout - timein) / 1.hour).round(2)
   end
 end
