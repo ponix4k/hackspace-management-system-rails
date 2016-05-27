@@ -16,7 +16,8 @@ class HsSession < ActiveRecord::Base
   private
 
   def session_duration_is_too_short?
-    user.hs_sessions.last.updated_at > 30.seconds.ago
+    user.hs_sessions.present? &&
+      user.hs_sessions.last.updated_at > 30.seconds.ago
   end
 
   def create_time_in
