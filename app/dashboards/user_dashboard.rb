@@ -12,7 +12,9 @@ class UserDashboard < Administrate::BaseDashboard
     uid: Field::String,
     created_at: Field::DateTime,
     hs_sessions: Field::HasMany,
-    role: Field::Select
+    role: Field::Select.with_options(
+      collection: User::ROLES
+    )
   }
 
   # COLLECTION_ATTRIBUTES
