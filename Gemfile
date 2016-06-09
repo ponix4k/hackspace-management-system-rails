@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby "2.3.1"
 
-gem "administrate", "~> 0.2.2"
+gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'cancancan', '~> 1.13', '>= 1.13.1'
 gem 'coffee-rails', '~> 4.1.0'

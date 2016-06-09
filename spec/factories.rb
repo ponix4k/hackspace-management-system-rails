@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :admin_user do
+    
+  end
   factory :user do
     email "hsuser@leighhack.com"
     uid "0123456"
