@@ -4,12 +4,12 @@
 .banner {
     background: transparent url('header.png') repeat scroll 0% 0%;
     width: 980px;
-    height: 210px;
+    height:300px;
 }
 
 .userBar {
     position: relative;
-    background: #195905 url('nav_back.jpg') no-repeat scroll right top;
+    background: #D41246  url('nav_back.jpg') no-repeat scroll right top;
     display: block;
     float: left;
     margin: 0px auto;
@@ -23,7 +23,7 @@
 }
 
  #body {
-    background-color: #E8EFE6;
+    background-color: #EFE6E6;
     color: #FFF;
     font-family: "Helvetica Neue",Helvetica,Arial,"Nimbus Sans L",sans-serif;
     font-size: 90%;
