@@ -13,6 +13,11 @@ class HsSession < ActiveRecord::Base
     end
   end
 
+  def auto_sign_out
+    create_time_out if timein? && timeout.nil?
+    self.update(auto_signed_out: true)
+  end
+
   private
 
   def session_duration_is_too_short?

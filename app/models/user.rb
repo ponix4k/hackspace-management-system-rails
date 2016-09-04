@@ -23,14 +23,10 @@ class User < ActiveRecord::Base
   end
 
   def password_needs_to_be_generated?
-    user_exists? && admin_exists?
+    user_exists?
   end
 
   def user_exists?
     id.nil?
-  end
-
-  def admin_exists?
-    User.count > 0
   end
 end
