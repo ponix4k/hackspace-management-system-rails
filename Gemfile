@@ -17,7 +17,6 @@ gem 'therubyracer', platforms: :ruby
 gem 'thin', '~> 1.6', '>= 1.6.4'
 gem 'turbolinks'
 gem 'uglifier', '~> 2.7.1'
-gem 'whenever', '~> 0.9.7', :require => false
 
 group :production do
   gem 'rails_12factor', '~> 0.0.3'
