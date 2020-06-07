@@ -12,6 +12,10 @@ Clone the repo:
 
 ### Setup your environment:
 
+Run the Docker install script
+
+`sudo ./install_docker.sh`
+
 Build the docker images
 
 `docker-compose build`
